@@ -26,6 +26,7 @@ var sum = function(array) {
   if (array.length === 0) {
     return 0;
   }
+
   if (array.length === 1) {
     return array[0];
   }
@@ -37,10 +38,39 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+
+  let sum = 0;
+
+  array.forEach((item) => {
+    if (Array.isArray(item)) {
+      sum += arraySum(item);
+    } else {
+      sum += item;
+    }
+  });
+
+  return sum;
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+
+  n = Math.abs(n);
+
+  if (n === 0) {
+    return true;
+  } else if (n === 1) {
+    return false;
+  } else {
+    return (isEven(n - 2));
+  }
+
+  // iterate over the number with a division of 2
+  // when the number is no longer divisible
+  // check to see if the number is 1 or 0
+  // depending on the value, return the proper boolean
+
+
 };
 
 // 5. Sum all integers below a given integer.
