@@ -65,18 +65,23 @@ var isEven = function(n) {
     return (isEven(n - 2));
   }
 
-  // iterate over the number with a division of 2
-  // when the number is no longer divisible
-  // check to see if the number is 1 or 0
-  // depending on the value, return the proper boolean
-
-
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+
+  var sum = 0;
+
+  if (n === 0) {
+    return sum;
+  } else if (n > 0) {
+    return sum += n-1 + sumBelow(n-1);
+  } else {
+    return sum += n+1 + sumBelow(n+1);
+  }
+
 };
 
 // 6. Get the integers within a range (x, y).
