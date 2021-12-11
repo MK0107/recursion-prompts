@@ -87,6 +87,15 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+
+  if (y - x === 0) {
+    return [x];
+  } else {
+    var numbers = range(x, y-1);
+    numbers.push(y);
+    return numbers;
+  }
+
 };
 
 // 7. Compute the exponent of a number.
@@ -95,6 +104,13 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+
+  if (exp === 0) {
+    return 1;
+  }
+
+  return base * exponent(base, exp-1);
+
 };
 
 // 8. Determine if a number is a power of two.
@@ -106,6 +122,11 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string === "") {
+    return "";
+  } else {
+    return reverse(string.substr(1)) + string.charAt(0);
+  }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
